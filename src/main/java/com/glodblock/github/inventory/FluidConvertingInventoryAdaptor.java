@@ -407,6 +407,9 @@ public class FluidConvertingInventoryAdaptor extends InventoryAdaptor {
         if (tank == null && inv == null) {
             return 2;
         }
+        if (targetInterface != null && !targetInterface.isActive()) {
+            return 1;
+        }
         if (targetInterface != null && targetInterface.getInstalledUpgrades(Upgrades.ADVANCED_BLOCKING) > 0
                 && targetInterface instanceof IDualHost
                 && !((IDualHost) targetInterface).getDualityFluid().getFluidInventory().getStorageList().isEmpty()) {
